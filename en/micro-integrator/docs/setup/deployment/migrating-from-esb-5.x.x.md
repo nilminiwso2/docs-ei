@@ -962,7 +962,11 @@ See the topics given below to configure log4j2 in EI 7 Micro Integrator.
 
 -	[Log4j2 properties](../../../administer-and-observe/logs/configuring_log4j_properties)
 -	[Correlation logs](../../../administer-and-observe/observability)
+<<<<<<< HEAD
 -	[Wire logss](../../../develop/using-wire-logs)
+=======
+-	[Wire logs](../../../develop/using-wire-logs)
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 -	[Service-level logs](../../../develop/enabling-logs-for-services)
 -	[REST API Access logs](../../../develop/enabling-logs-for-api)
 -	[Managing Log Growth](../../../administer-and-observe/logs/managing_log_growth)

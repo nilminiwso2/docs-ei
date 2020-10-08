@@ -146,7 +146,11 @@ The following table explains the availability of the most critical features in t
 			XML-based configurations
 		</td>
 		<td>
+<<<<<<< HEAD
 			<a href="../../../references/config-catalog">TOML-based configurations</a>
+=======
+			<a href="../../references/config-catalog">TOML-based configurations</a>
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 		</td>
 	</tr>
 	<tr>
@@ -187,10 +191,17 @@ The following table explains the availability of the most critical features in t
 			Tooling
 		</td>
 		<td>
+<<<<<<< HEAD
 			<a href="../../../develop/WSO2-Integration-Studio">WSO2 Integration Studio</a>
 		</td>
 		<td>
 			<a href="../../../develop/WSO2-Integration-Studio">WSO2 Integration Studio</a>
+=======
+			<a href="../../develop/WSO2-Integration-Studio">WSO2 Integration Studio</a>
+		</td>
+		<td>
+			<a href="../../develop/WSO2-Integration-Studio">WSO2 Integration Studio</a>
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 		</td>
 	</tr>
 	<tr>
@@ -201,8 +212,13 @@ The following table explains the availability of the most critical features in t
 			Managemement Console
 		</td>
 		<td>
+<<<<<<< HEAD
 			<a href="../../../administer-and-observe/working-with-monitoring-dashboard">Micro Integrator Dashboard</a></br>
 			<a href="../../../administer-and-observe/using-the-command-line-interface">Micro Integrator CLI</a>
+=======
+			<a href="../../administer-and-observe/working-with-monitoring-dashboard">Micro Integrator Dashboard</a></br>
+			<a href="../../administer-and-observe/using-the-command-line-interface">Micro Integrator CLI</a>
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 		</td>
 	</tr>
 	<tr>
@@ -224,7 +240,11 @@ The following table explains the availability of the most critical features in t
 			RDBMS-based Registry
 		</td>
 		<td>
+<<<<<<< HEAD
 			<a href="../../../setup/deployment/file_based_registry">File system based Registry</a>
+=======
+			<a href="../../setup/deployment/file_based_registry">File system based Registry</a>
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 		</td>
 	</tr>
 	<tr>
@@ -261,10 +281,17 @@ The following features, which are available in ESB runtimes, are removed from th
 			Management Console
 		</td>
 		<td>
+<<<<<<< HEAD
 			<a href="../../../develop/WSO2-Integration-Studio">WSO2 Integration Studio</a> is the recommended tool for developing integration solutions. The monitoring capabilities available in the management console (of the ESB profile) are available through the new <a href="../../../administer-and-observe/working-with-monitoring-dashboard">Micro Integrator dashboard</a>.
 		</td>
 		<td>
 			<a href="../../../administer-and-observe/working-with-monitoring-dashboard">Micro Integrator Dashboard</a>
+=======
+			<a href="../../develop/WSO2-Integration-Studio">WSO2 Integration Studio</a> is the recommended tool for developing integration solutions. The monitoring capabilities available in the management console (of the ESB profile) are available through the new <a href="../../administer-and-observe/working-with-monitoring-dashboard">Micro Integrator dashboard</a>.
+		</td>
+		<td>
+			<a href="../../administer-and-observe/working-with-monitoring-dashboard">Micro Integrator Dashboard</a>
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 		</td>
 	</tr>
 	<tr>
@@ -297,14 +324,35 @@ The following features, which are available in ESB runtimes, are removed from th
 			-
 		</td>
 		<td>
+<<<<<<< HEAD
 			<a href="../../../setup/deployment/file_based_registry">File system based Registry</a>
+=======
+			<a href="../../setup/deployment/file_based_registry">File system based Registry</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Rule Mediator
+		</td>
+		<td>
+			The rule mediator has been removed from Ei 7.1.0 as it is not widely used.
+		</td>
+		<td>
+			-
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 		</td>
 	</tr>
 </table>
 
+<<<<<<< HEAD
 ### Mediators removed (After ESB 5.0.0)
 
 The following mediators are removed from the ESB runtime in all versions after ESB 5.0.0. If you are migrating from ESB 5.0.0 to the Micro Integrator of EI 7.1.0, note that these mediators are no longer supported.
+=======
+### Mediators and artifacts removed (After ESB 5.0.0)
+
+The following mediators and artifacts are removed from the ESB runtime in all versions after ESB 5.0.0. If you are migrating from ESB 5.0.0 to the Micro Integrator of EI 7.1.0, note that these artifacts are no longer supported.
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 
 -	Priority Executors
 -	Enqueue Mediator

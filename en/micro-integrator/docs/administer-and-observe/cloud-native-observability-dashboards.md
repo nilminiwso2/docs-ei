@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 !!! note
     This section is still a work in progress and not tested.
 
@@ -26,6 +27,21 @@ As illustrated above, the main feature of this solution is the ability to view l
 
 Following sections explains the features and usage of this solution and how to get the maximum use out of this observability solution.
 
+=======
+# Viewing Cloud Native Observability Dashboards
+
+Let's use the **dashboards** from the cloud-native observability deployment to monitor **statistics** from your integration artifacts.
+
+## Before you begin
+
+Set up the suitable cloud-native observability deployment. The dashboards described in this section applies to all the cloud-native deployment strategies.
+
+See the following topics for information and instructions:
+
+-	Learn about [Observability deployment strategy](../../setup/observability/observability-deployment-strategy).
+-	Setting up [cloud-native observability for a VM environment](../../setup/observability/setting-up-minimum-basic-observability-deployment)
+-	Setting up [cloud-native observability for a Kubernetes environment](../../setup/observability/setting-up-cloud-native-observability-in-kubernetes)
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 
 ## Cluster dashboard
 
@@ -35,7 +51,13 @@ In the Cluster dashboard visualizes the overall statistics relating to your WSO2
 
 ### Downloading the dashboard
 
+<<<<<<< HEAD
 You can download the dashboard from the [WSO2 EI Git repository]().
+=======
+You can download the dashboard from the [Grafana Labs - WSO2 Integration Cluster Metrics](https://grafana.com/grafana/dashboards/12783).
+
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment](../setup/observability/setting-up-minimum-basic-observability-deployment.md)
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 
 ### Statistic types
 
@@ -81,7 +103,13 @@ This displays statistics specific to a selected node.
 
 ### Downloading the dashboard
 
+<<<<<<< HEAD
 You can download the dashboard from the [WSO2 EI Git repository]().
+=======
+You can download the dashboard from the [Grafana Labs - WSO2 Integration Node Metrics](https://grafana.com/grafana/dashboards/12887).
+
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment](../setup/observability/setting-up-minimum-basic-observability-deployment.md)
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 
 ### Statistic types
 
@@ -118,6 +146,7 @@ The purposes of this dashboard are as follows:
 
 - Click on the services deployed in the node to view statistics specific to those services. This allows you evaluate the throughput of each service to analyze further and make decisions on how to deploy the available services in the available nodes in a manner that optimizes the use of resources. It also allows you to identify the services that contribute to the total error count of the node and take appropriate action.
 
+<<<<<<< HEAD
 ## Proxy Service dashboard
 
 In the Proxy service dashboard, we can view information related to a specific Proxy service.
@@ -127,11 +156,25 @@ In the Proxy service dashboard, we can view information related to a specific Pr
 ### Downloading the dashboard
 
 You can download the dashboard from the [WSO2 EI Git repository]().
+=======
+## WSO2 Proxy Service Metrics dashboard
+
+In the Proxy service dashboard, we can view information related to a specific Proxy service.
+
+![Proxy Service Metrics Dashboard](../assets/img/monitoring-dashboard/grafana-proxy-services-dashboard.png)
+
+### Downloading the dashboard
+
+You can download the dashboard from the [Grafana Labs - WSO2 Proxy Service Metrics](https://grafana.com/grafana/dashboards/12889).
+
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment](../setup/observability/setting-up-minimum-basic-observability-deployment.md)
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 
 ### Statistic types
 
 The following is the list of widgets displayed in this dashboard.
 
+<<<<<<< HEAD
 | **Widget**                    | **Description**                                                                                       |
 |-------------------------------|-------------------------------------------------------------------------------------------------------|
 | **Up Time**                   | The time duration that has elapsed since the proxy service started running during the current session.|
@@ -143,6 +186,19 @@ The following is the list of widgets displayed in this dashboard.
 | **Request Rate**              | A visualization of the total number of requests handled by the proxy service over time.               |
 | **Error Rate**                | A visualization of the total number of errors that have occurred for the proxy service over time.     |
 | **Response Time**             | A visualization of the time taken by the proxy service to respond to requests over time.              |
+=======
+| **Widget**                    | **Description**                                                                                                                                                                                   |
+|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Up Time**                   | The time duration that has elapsed since the proxy service started running during the current session.                                                                                            |
+| **All Request Count**         | The total number of requests received and handled by the proxy service during the selected time interval.                                                                                         |
+| **Successful Request Count**  | The total number of requests that were successfully executed by the proxy service during the selected time interval.                                                                              |
+| **Error Count**               | The total number of requests handled by the proxy service during the selected time interval that have resulted in errors.                                                                         |
+| **Error Percentage**          | The requests handled by the proxy service during the selected time interval that have resulted in errors, as a percentage of the total number of requests received by the proxy service during that same time interval.|
+| **Deployed Node Count**       | The number of nodes in which the proxy service is deployed.                                                                                                                                       |
+| **Request Rate**              | A visualization of the total number of requests handled by the proxy service during the selected time interval.                                                                         |
+| **Error Rate**                | A visualization of the total number of errors that have occurred for the proxy service during the selected time interval. |
+| **Response Time**             | A visualization of the time taken by the proxy service to respond to requests during the selected time interval. |
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 
 ### Purpose
 
@@ -158,6 +214,7 @@ The purposes of this dashboard is as follows:
 
 - If there are errors, check the mediation flow of the proxy service and make changes to prevent the errors.                                                                                                               
 
+<<<<<<< HEAD
 ## API dashboard
 
 This dashboard displays overall statistics related to a specific API. 
@@ -165,6 +222,19 @@ This dashboard displays overall statistics related to a specific API.
 ### Downloading the dashboard
 
 You can download the dashboard from the [WSO2 EI Git repository]().
+=======
+## WSO2 API Metrics dashboard
+
+This dashboard displays overall statistics related to a specific API. 
+
+![API Metrics Dashboard](../assets/img/monitoring-dashboard/grafana-api-services-dashboard.png)
+
+### Downloading the dashboard
+
+You can download the dashboard from the [Grafana Labs - WSO2 API Metrics](https://grafana.com/grafana/dashboards/12888).
+
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment](../setup/observability/setting-up-minimum-basic-observability-deployment.md)
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 
 ### Statistic types
 
@@ -173,6 +243,7 @@ The following is the list of widgets displayed in this dashboard.
 | **Widget**                    | **Description**                                                                                      |
 |-------------------------------|------------------------------------------------------------------------------------------------------|
 | **Up Time**                   | The time duration that has elapsed since the API service started running during the current session. |                                                                                                            |
+<<<<<<< HEAD
 | **All Time Request Count**    | The total number of requests received and handled by the API service.                                |
 | **Approx. Request Count**     |                                                                                                      |
 | **All Time Error Count**      | The total number of requests handled by the proxy service that have resulted in errors.              |
@@ -181,6 +252,16 @@ The following is the list of widgets displayed in this dashboard.
 | **Request Rate**              | A visualization of the total number of requests handled by the API service over time.                |
 | **Error Rate**                | A visualization of the total number of errors that have occurred for the API service over time.      |
 | **Response Time**             | A visualization of the time taken by the API service to respond to requests over time.               |
+=======
+| **All Request Count**         | The total number of requests received and handled by the API during the selected time interval.                                                                                         |
+| **Successful Request Count**  | The total number of requests that were successfully executed by the API during the selected time interval.                                                                              |
+| **Error Count**               | The total number of requests handled by the API during the selected time interval that have resulted in errors.                                                                         |
+| **Error Percentage**          | The requests handled by the API during the selected time interval that have resulted in errors, as a percentage of the total number of requests received by the API during that same time interval.|
+| **Deployed Node Count**       | The number of nodes in which the API service is deployed.                                            |
+| **Request Rate**              | A visualization of the total number of requests handled by the API service during the selected time interval. |
+| **Error Rate**                | A visualization of the total number of errors that have occurred for the API service during the selected time interval. |
+| **Response Time**             | A visualization of the time taken by the API service to respond to requests during the selected time interval. |
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 
 ### Purpose
 
@@ -194,6 +275,7 @@ The following is the list of widgets displayed in this dashboard.
 
 - If there are errors, check the mediation flow of the API service and make changes to prevent the errors.  
 
+<<<<<<< HEAD
 ## Inbound Endpoint dashboard
 
 In the Inbound endpoint dashboard, we can view information related to a specific Inbound endpoint. We can download this dashboard from here. In this dashboard, it will show us Up Time,, All Request Count, Successful Request Count, Error Count, Error Percentage, Deployed Node Count, Request Rate, Error Rate and Response Time. Basically this dashboard shows us the overall statistics related to an Inbound endpoint.
@@ -201,11 +283,38 @@ In the Inbound endpoint dashboard, we can view information related to a specific
 ### Downloading the dashboard
 
 You can download the dashboard from the [WSO2 EI Git repository]().
+=======
+## WSO2 Inbound Endpoint Metrics dashboard
+
+At a given time, the Inbound endpoint dashboard displays the overall statistics related to a selected endpoint. we can view information related to a specific Inbound endpoint. We can download this dashboard from here. In this dashboard, it will show us Up Time,, All Request Count, Successful Request Count, Error Count, Error Percentage, Deployed Node Count, Request Rate, Error Rate and Response Time.
+
+![Inbound Endpoint Metrics Dashboard](../assets/img/monitoring-dashboard/grafana-inbound-endpoint-metrics-dashboard.png)
+
+### Downloading the dashboard
+
+You can download the dashboard from the [Grafana Labs - WSO2 Inbound Endpoint Metrics](https://grafana.com/grafana/dashboards/12890).
+
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment](../setup/observability/setting-up-minimum-basic-observability-deployment.md)
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 
 ### Statistic types
 
 The following is the list of widgets displayed in this dashboard.
 
+<<<<<<< HEAD
 ### Purpose
 
 ### Recommended action                                                                                                       |
+=======
+| **Widget**                    | **Description**                                                                                                                         |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| **Up Time**                   | The time duration that has elapsed since the inbound endpoint became active during the current session.                                 |
+| **All Request Count**         | The total number of requests received and handled by the inbound endpoint during the selected time interval.                                                                                         |
+| **Successful Request Count**  | The total number of requests that were successfully executed by the inbound endpoint during the selected time interval.                                                                              |
+| **Error Count**               | The total number of requests handled by the inbound endpoint during the selected time interval that have resulted in errors.                                                                         |
+| **Error Percentage**          | The requests handled by the inbound endpoint during the selected time interval that have resulted in errors, as a percentage of the total number of requests received by the endpoint during that same time interval.|
+| **Deployed Node Count**       | The number of nodes in which the inbound endpoint is deployed.                                                                          |
+| **Request Rate**              | A visualization of the total number of requests handled by the inbound endpoint during the selected time interval.                      |
+| **Error Rate**                | A visualization of the total number of errors that have occurred for the inbound endpoint during the selected time interval.            |
+| **Response Time**             | A visualization of the time taken by the inbound endpoint to respond to requests during the selected time interval.                     |
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de

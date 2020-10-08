@@ -164,6 +164,12 @@ Maven profiles:
 
 To build a selected Maven profile:
 
+<<<<<<< HEAD
+=======
+!!! Note
+    When you build a <b>Docker</b> or <b>Kubernetes</b> profile using this method, you need to have **Maven 3.5.2** or a later version installed.
+
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 1.  Open a terminal and navigate to the MMM project folder.
 2.  Execute the following command:
 

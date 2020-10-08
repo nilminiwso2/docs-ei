@@ -2,7 +2,11 @@
 
 See the topics given below to understand **user management** in the Micro Integrator of EI 7.1.0.
 
+<<<<<<< HEAD
 ## Users credentials in the MI
+=======
+## User credentials in the MI
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 
 WSO2 Micro Integrator requires <b>user</b> credentials for <i>authentication</i> and <i>authorization</i> purposes:
 

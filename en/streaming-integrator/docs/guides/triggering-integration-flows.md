@@ -74,7 +74,11 @@ The following artifacts need to be deployed in the Micro Integrator.
     !!! info
         Currently, WSO2 Integration Studio does not support GRPC Inbound Endpoint. This capability will be available in a future [release](https://github.com/wso2/devstudio-tooling-ei/issues/1238). 
         For now, you need to create the inbound endpoint manually as an XML file.
+<<<<<<< HEAD
                                 
+=======
+
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 - Both the inbound endpoint and the `grpc-call` sink in the Siddhi application refers to a sequence (`inSeq` in this example). A sequence with the same name and the required configuration should be added to the `<MI_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory. The following is a sample configuration.
 
     ```xml

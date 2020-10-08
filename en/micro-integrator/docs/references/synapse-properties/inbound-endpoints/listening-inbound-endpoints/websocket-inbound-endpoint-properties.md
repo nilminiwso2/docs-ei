@@ -190,7 +190,11 @@ The following optional properties can be configured when [creating a **Secured**
   </tr>
   <tr>
          <td>wss.ssl.protocols</td>
+<<<<<<< HEAD
          <td>Enables the SSL protocol for the particular WebSocket inbound endpoint. Default value is "TLS". You can change it to a TLS version(s), which is/are enabled with the SSL protocol (i.e., TLSv1,TLSv1.1,TLSv1.2). For example, <code>&lt;parameter name="wss.ssl.protocols"&gtTLSv1.1,TLSv1.2&lt;/parameter&gt</code></td>
+=======
+         <td>Enables the SSL protocol for the particular WebSocket inbound endpoint. Default value is "TLS". You can change it to a TLS version(s), which is/are enabled with the SSL protocol (i.e., TLSv1,TLSv1.1,TLSv1.2). For example, <code><parameter name="wss.ssl.protocols">TLSv1.1,TLSv1.2</parameter></code></td>
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
       </tr>
       <tr>
          <td>wss.ssl.cipher.suites</td>

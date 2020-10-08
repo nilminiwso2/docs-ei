@@ -41,7 +41,11 @@ This can be used with the following:
     insert into StreamB;
     ```
   
+<<<<<<< HEAD
     If you do not specify the on-error action for a stream  via the `@OnError()` annotation, the event is logged and dropped.
+=======
+  If you do not specify the on-error action for a stream  via the `@OnError()` annotation, the event is logged and dropped.
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
     
 - Sinks
 
@@ -56,7 +60,11 @@ This can be used with the following:
 
 - Source mappers
 
+<<<<<<< HEAD
     If the `error.store` is enabled in the `<SI_HOME>/conf/server/deployment.yaml` file, mapping errors are automatically added to the error store.
+=======
+   If the `error.store` is enabled in the `<SI_HOME>/conf/server/deployment.yaml` file, mapping errors are automatically added to the error store.
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 
 ### LOG
 
@@ -128,8 +136,13 @@ This can be used with the following:
     insert into tempStream;
     ```
 
+<<<<<<< HEAD
     !!! Note
         This on.error action is not applicable for source mappers.
+=======
+!!! Note
+    This on.error action is not applicable for source mappers.
+>>>>>>> 1e62e069fd75a43881230556dbfa19e9065086de
 
 ### WAIT
 
