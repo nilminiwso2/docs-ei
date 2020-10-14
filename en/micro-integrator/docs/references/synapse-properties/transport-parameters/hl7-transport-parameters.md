@@ -1,8 +1,5 @@
 # HL7 Parameters
 
-!!! Warning
-    <b>This content is currently work in progress!</b>
-
 When you implement an integration use case that handles HL7 messsages, you can use the following HL7 parameters in your [proxy service](../../../../develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
@@ -18,7 +15,7 @@ Add the parameter "transport.hl7.ConformanceProfilePath" in the proxy service to
 
 ## Message pre-processing
 
-Add the "transport.hl7.MessagePreprocessorClass" parameter in the proxy service to point to an implementation class of the interface "org.wso2.carbon.business.messaging.hl7.common.HL7MessagePreprocessor", which is used to process raw HL7 messages before parsing them so that potential errors in the messages can be rectified using the transport.
+Add the "transport.hl7.MessagePreprocessorClass" parameter in the proxy service to point to an implementation class of the interface "org.wso2.micro.integrator.business.messaging.hl7.common.HL7MessagePreprocessor", which is used to process raw HL7 messages before parsing them so that potential errors in the messages can be rectified using the transport.
 
 ## Acknowledgement
 
@@ -60,10 +57,11 @@ In general, we don't wait for the back-end application's response before sending
 
 In this case, the request thread will wait until the back-end application returns the response before sending the "accept-acknowledgement" message to the client. You can configure how long request threads wait for the application's response by configuring the time-out in milliseconds at the transport level:
 
-```xml
-<transportReceiver name="hl7" class="org.wso2.carbon.business.messaging.hl7.transport.HL7TransportListener">
-    <parameter name="transport.hl7.TimeOut">1000</parameter>
-</transportReceiver>
+```toml
+[[custom_transport.listener]]
+class="org.wso2.micro.integrator.business.messaging.hl7.transport.HL7TransportListener"
+protocol = "hl7"
+parameter.'transport.hl7.TimeOut' = 1000
 ```
 
 For more information on configuring the proxy service for application acknowledgment, see Application acknowledgement in Creating an HL7 Proxy Service.
@@ -151,8 +149,9 @@ The HL7 transport uses a thread pool to manage connections. A larger thread pool
 You can create a proxy service that uses the HL7 transport, to connect to an HL7 server. This proxy service will receive HL7-client connections and send them to the HL7 server. It can also receive XML messages over HTTP/HTTPS and transform them into HL7 before sending them to the server, and it will transform the HL7 responses back into XML.
 
 !!! Info
-    If you want to try the example configurations on this page, you must have an HL7 client and HL7 back-end application set up and running. To see a sample that illustrates how to create an HL7 client and back-end application, see: https://github.com/wso2/carbon-mediation/tree/v4.6.6/components/business-adaptors/hl7/org.wso2.carbon.business.messaging.hl7.samples/src/main/java/org/wso2/carbon/business/messaging/hl7/samples
-
+    If you want to try the example configurations on this page, you must have an HL7 client and HL7 back-end 
+    application set up and running. To see a sample that illustrates how to create an HL7 client and back-end 
+    application, see: [WSO2 Hl7 Samples](https://github.com/wso2/carbon-mediation/tree/v4.7.61/components/business-adaptors/hl7/org.wso2.carbon.business.messaging.hl7.samples/src/main/java/org/wso2/carbon/business/messaging/hl7/samples)
 ```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse" name="hl7testproxy" transports="https,http,hl7" statistics="disable" trace="disable" startOnLoad="true">
  <target>
@@ -163,7 +162,7 @@ You can create a proxy service that uses the HL7 transport, to connect to an HL7
        <log level="full" />
        <send />
     </outSequence>
-    <endpoint name="endpoint_urn_uuid_9CB8D06C91A1E996796270828144799-1418795938">
+    <endpoint name="hl7_endpoint">
        <address uri="hl7://localhost:9988" />
     </endpoint>
  </target>
@@ -206,22 +205,26 @@ You can use the HL7 message store to automatically store HL7 messages, allowing 
 
 ```xml tab='Send Sequence'
 <sequence name="SendSequence">
-   <in>
-      <send>
-         <endpoint>
-            <address uri="hl7://localhost:9988"/>
-         </endpoint>
-      </send>
-   </in>
-   <out>
-      <log level="full"/>
-      <drop/>
-   </out>
+    <call>
+        <endpoint>
+            <address uri="hl7://localhost:9988">
+                <suspendOnFailure>
+                    <initialDuration>-1</initialDuration>
+                    <progressionFactor>1</progressionFactor>
+                </suspendOnFailure>
+                <markForSuspension>
+                    <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                </markForSuspension>
+            </address>
+        </endpoint>
+    </call>
+    <log level="full"/>
+    <drop/>
 </sequence>
 ```
 
 ```xml tab='Message Store'
-<messageStore class="org.wso2.carbon.business.messaging.hl7.store.jpa.JPAStore"
+<messageStore class="org.wso2.micro.integrator.business.messaging.hl7.store.jpa.JPAStore"
                  name="HL7StoreJPA">
    <parameter name="openjpa.ConnectionDriverName">org.apache.commons.dbcp.BasicDataSource</parameter>
    <parameter name="openjpa.ConnectionProperties">DriverClassName=com.mysql.jdbc.Driver, Url=jdbc:mysql://localhost/hl7storejpa,  MaxActive=100,  MaxWait=10000,  TestOnBorrow=true,  Username=root,  Password=root</parameter>
@@ -231,7 +234,7 @@ You can use the HL7 message store to automatically store HL7 messages, allowing 
 
 In this configuration, when the HL7 proxy service runs, an HL7 service will start listening on the port defined in the transport.hl7.Port service parameter. When an HL7 message arrives, the proxy will send an ACK back to the client as specified in the HL7_RESULT_MODE property. The Clone mediator is used inside the proxy to replicate the message into the Send and Store sequences, where the message is sent to the specified endpoint and is also stored in the message store HL7StoreJPA.
 
-The HL7StoreJPA message store is a custom message store implemented in org.wso2.carbon.business.messaging.hl7.store.jpa.JPAStore. It takes OpenJPA properties as parameters. In this example, the openjpa.ConnectionProperties and openjpa.ConnectionDriverName properties are used to create an Apache DBCP pooled connection set to a MySQL database. You will need to create the database specified in the connection properties and provide the database authentication details matching your database. You may also need to place the JDBC drivers for your database into <EI_HOME>/lib . 
+The HL7StoreJPA message store is a custom message store implemented in org.wso2.micro.integrator.business.messaging.hl7.store.jpa.JPAStore. It takes OpenJPA properties as parameters. In this example, the openjpa.ConnectionProperties and openjpa.ConnectionDriverName properties are used to create an Apache DBCP pooled connection set to a MySQL database. You will need to create the database specified in the connection properties and provide the database authentication details matching your database. You may also need to place the JDBC drivers for your database into <EI_HOME>/lib . 
 
 You can view the messages in this message store using the HL7 Console UI. You can search for messages on the unique message UUID or HL7 specific Control ID. The search field supports the wildcard ‘%’ to allow LIKE queries. The table can also be filtered to search for content within messages.
 
@@ -249,7 +252,7 @@ If user doesn't want to wait for the back-end service to process the message and
             <property name="HL7_RESULT_MODE" value="ACK" scope="axis2"/>
             <property name="HL7_GENERATE_ACK" value="true" scope="axis2"/>
             <send>
-               <endpoint name="endpoint_urn_uuid_9CB8D06C91A1E996796270828144799-1418795938">
+               <endpoint name="hl7_endpoint">
                     <address uri="hl7://localhost:9988"/>
                 </endpoint>
             </send>
@@ -263,6 +266,7 @@ If user doesn't want to wait for the back-end service to process the message and
      </target>
      <parameter name="transport.hl7.AutoAck">false</parameter>
      <parameter name="transport.hl7.ValidateMessage">false</parameter>
+     <parameter name="transport.hl7.Port">9293</parameter>
 </proxy>
 ```
 
@@ -289,13 +293,16 @@ If you want to wait for the application's response before sending the acknowledg
   </target>
   <parameter name="transport.hl7.AutoAck">false</parameter>
   <parameter name="transport.hl7.ValidateMessage">true</parameter>
+  <parameter name="transport.hl7.Port">9294</parameter>
   <description></description>
 </proxy>
 ```
 
 ## Transferring messages from file system to file system
 
-WSO2 Enterprise Integrator(WSO2 EI) allows messages to be transferred between HL7 and the file system using the HL7 and VFS transports. To begin, ensure that you have the VFS and HL7 transports enabled by uncommenting the relevant transportReceiver and transportSender elements inside the <EI_HOME>/conf/axis2/axis2.xml file. You must also uncomment the relevant builder/formatter pair to enable WSO2 EI to work with the HL7 message format. For more information, see HL7 Transport and VFS Transport .
+WSO2 Enterprise Integrator(WSO2 EI) allows messages to be transferred between HL7 and the file system using the HL7 
+and VFS transports. For information on configuring Hl7 transport, see [HL7 transport]
+(../../../../setup/transport_configurations/configuring-transports/#configuring-the-hl7-transport).
 
 Once you have enabled the transports and started the WSO2 EI server, use the following proxy service configuration to run the sample. 
 

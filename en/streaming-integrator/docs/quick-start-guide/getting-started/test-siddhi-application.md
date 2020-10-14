@@ -1,10 +1,28 @@
-# Step 5: Test the Siddhi Application
+# Step 4: Run the Siddhi Application
 
-Any Siddhi application created for a business purpose needs to be tested before it is used to process actual data in order to ensure that it functions as expected. 
+In this step, let's run the `SweetFactoryApp` Siddhi application that you created, tested and deployed.
 
-In [Step 2: Create a Siddhi Application](create-the-siddhi-application.md), you created the `SweetFactoryApp` Siddhi application to capture production data from the `production` MySQL database table as change data in real time, do a simple transformation, and then publish the output to a file. To see whether the Siddhi application actually functions as described, insert a record in the `production` database table.
+## Installing the required extensions
 
-To do this, issue the following command in the MySQL console.
+In [Step 2: Create the Siddhi Application](create-the-siddhi-application.md), you installed the `cdc-mysql` Siddhi extension in Streaming Integrator Tooling to test the `SweetFacoryApp` Siddhi application. Now let's install it in the Streaming Integrator server so that you can run the same Siddhi application there.
+
+1. Start the Streaming Integrator server by navigating to the `<SI_HOME>/bin` directory from the CLI, and issuing the appropriate command based on your operating system:</br>
+   
+   - For Windows: `server.bat --run`</br>
+   - For Linux/Mac OS:  `./server.sh`
+   
+2. To install the `cdc-mysql` extension, issue the following command from the `<SI_HOME>/bin` directory. 
+
+    - For Windows: `extension-installer.bat install cdc-mysql`</br>
+    - For Linux/Mac OS:  `./extension-installer.sh install install cdc-mysql`
+    
+    Once the installation is complete, a message is logged to inform you that the extension is successfully installed.
+    
+3. Restart the Streaming Integrator server.
+
+## Generating an input event
+
+To generate an input event, insert a record in the `production` database table by issuing the following command in the MySQL console.
 
 `insert into SweetProductionTable values('chocolate',100.0);`
 
@@ -12,6 +30,5 @@ Then open the `/Users/foo/productioninserts.csv` file. The following record shou
 
 ![Updated File](../../images/quick-start-guide-101/updated-file.png)
     
-## What's Next?
-
-To update the `SweetFactoryApp` Siddhi application you created so that it can publish to Kafka topics via the Kafka extension you installed, proceed to [Step 6: Update the Siddhi Application](update-the-siddhi-application.md)
+!!! tip "What's Next?"
+    Now you can try extending the `SweetFactoryApp` Siddhi application to perform more streaming integration activities. To try this, proceed to [Step 5: Update the Siddhi Application](update-the-siddhi-application.md).
