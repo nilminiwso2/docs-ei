@@ -164,6 +164,7 @@ Add the handler to the REST API:
 
 You can now send a request to the secured API.
 
+
 <!--
 ## Using Kerberos to secure the REST API
 
